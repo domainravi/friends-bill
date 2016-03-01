@@ -1,0 +1,100 @@
+<div class="row" ng-controller="friendsCtrl">
+	<div class="container">
+		<div class="col-md-10">
+			<!-- Add Form -->
+			<form class="well" ng-show="showForm" ng-submit="submitExpenseForm()">
+				<div class="col-md-3">
+					<div class="form-group">
+						<label for="">Expense Description</label>
+						<input type="text" class="form-control" ng-model="description" id="" required/>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label for="">Amount</label>
+						<input type="text" class="form-control" ng-model="amount" id="" placeholder="" required/>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label for="">Friend</label>
+						<input type="text" class="form-control" ng-model="friend" id="" placeholder="" required/>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<input type="submit" style="margin-top:10%;" class="btn btn-primary" value="Add"/>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</form>
+
+
+			<!-- Edit form / update form -->
+			<form class="well" ng-show="updateForm" ng-submit="editExpenseFormSubmit()">
+				<div class="col-md-3">
+					<div class="form-group">
+						<label for="">Expense Description</label>
+						<input type="text" class="form-control" ng-model="description" id="" placeholder="" required/>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label for="">Amount</label>
+						<input type="text" class="form-control" ng-model="amount" id="" placeholder="" required/>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<label for="">Friend</label>
+						<input type="text" class="form-control" ng-model="friend" id="" placeholder="" required/>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<div class="form-group">
+						<input type="submit" style="margin-top:10%;" class="btn btn-primary" value="Update"/>
+					</div>
+				</div>
+				<div class="clearfix"></div>
+			</form>
+
+
+			<!-- Form Details -->
+			<div class="panel panel-default" ng-show="showExpense">
+				<div class="panel-heading">Details</div>
+				<div class="panel-body">
+					<ol>
+						<li><strong>Expense Description:</strong> {{description}}</li>
+						<li><strong>Amount:</strong> {{amount}}</li>
+						<li><strong>Friend:</strong> {{friend}}</li>
+					</ol>
+				</div>
+			</div>
+			<p><strong>Total Friends: </strong>{{friends.length}}</p>
+
+			<!-- List of all users -->
+			<table class="table table-bordered">
+				<thead> 
+					<tr>
+						<th>Expense Description</th> 
+						<th>Amount</th>
+						<th>Friend</th> 
+						<th>Action</th>
+					</tr> 
+				</thead> 
+				<tbody> 
+					<tr ng-repeat="friend in friends">
+						<th>{{friend.description}}</th>
+						<td>{{friend.amount}}</td>
+						<td>{{friend.friend}}</td> 
+						<td><button type="button" class="btn btn-info" ng-click="showEditExpenseForm(friend)"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</button> <button type="button" class="btn btn-danger" ng-click="removeExpenseForm(friend)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete</button></td>
+					</tr>
+				</tbody> 
+			</table>
+		</div>
+		<div class="col-md-2">
+			<button type="button" class="btn btn-primary" ng-click="showExpenseForm()" ng-hide="showForm"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></button>
+			<button type="button" class="btn btn-primary" ng-click="hideExpenseForm()" ng-show="showForm"><span class="glyphicon glyphicon-minus" aria-hidden="true"></span></button>
+		</div>
+	</div>
+</div>
