@@ -1,3 +1,5 @@
-I used a framework to manage Angular app.
+I have used a seed-angular framework to manage AngularJs app.
 
-To run use "npm start"
+To use it just use the following command
+1. nmp install
+2. npm run
