@@ -1,5 +1,15 @@
 'use strict';
 
+var config = {
+  apiKey: "AIzaSyB5oy_-zvtNbajVUcLbKYkzNarhIn0DMxw",
+  authDomain: "friendsbill.firebaseio.com",
+  databaseURL: "https://friendsbill.firebaseio.com/",
+  storageBucket: "gs://firebase-friendsbill.appspot.com",
+};
+firebase.initializeApp(config);
+
+var ref = firebase.database().ref();
+
 angular.module('myApp.friends', ['ngRoute', 'firebase'])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -11,7 +21,7 @@ angular.module('myApp.friends', ['ngRoute', 'firebase'])
 
 .controller('friendsCtrl', ['$scope', '$firebaseArray', function($scope, $firebaseArray) {
 	//Intialize firebase
-	var ref = new Firebase('https://friendsbill.firebaseio.com/friends');
+	//var ref = new Firebase('https://friendsbill.firebaseio.com/friends');
 
 	//get friends
 	$scope.friends = $firebaseArray(ref);
